@@ -1,6 +1,6 @@
 from scripts.load_data import load_osm_data
 from scripts.floyd_warshall import floyd_warshall
-from scripts.visualize import plot_distance_matrix
+from scripts.visualize import plot_distance_matrix, plot_adjacency_matrix
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -33,12 +33,24 @@ def draw_network(graph):
     plt.title('Netzwerkdiagramm')
     plt.show()
 
+def create_adjacency_matrix(graph):
+    """Erstellt eine Adjazenzmatrix aus einem NetworkX Graph."""
+    return nx.adjacency_matrix(graph).todense()
+
 def main():
     print("Laden des Graphen...")
     graph = load_osm_data()
 
-    print("Zeichne das Netzwerkdiagramm...")
-    draw_network(graph)
+    # print("Zeichne das Netzwerkdiagramm...")
+    # draw_network(graph)
+
+    print("Erstelle Adjazenzmatrix...")
+    adj_matrix = create_adjacency_matrix(graph)
+    print("Adjazenzmatrix erstellt.")
+
+    print("Visualisiere Adjazenzmatrix...")
+    plot_adjacency_matrix(adj_matrix)
+    print("Visualisierung der Adjazenzmatrix abgeschlossen.")
 
     print("Konvertiere Graph zu Edge List...")
     edge_list, num_vertices = convert_graph_to_edge_list(graph)
