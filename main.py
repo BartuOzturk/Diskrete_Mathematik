@@ -27,7 +27,7 @@ def main():
     graph = load_osm_data()
 
     start_address = "Böcklerstraße 6, 10969 Berlin"
-    end_address = "Brunnenstraße 111i, 13355 Berlin"
+    end_address = "Kottbusser Damm 32, 10967 Berlin"
     start_node = get_nearest_node(graph, start_address)
     end_node = get_nearest_node(graph, end_address)
 

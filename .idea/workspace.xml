@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6313c042-7840-4401-916a-0de87cfec9e6" name="Changes" comment="Adjazenzmatrix">
+    <list default="true" id="6313c042-7840-4401-916a-0de87cfec9e6" name="Changes" comment="kreuzberg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/floyd_warshall.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/floyd_warshall.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/load_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/load_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/visualize.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,13 +142,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717784317039</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="es geht">
+      <option name="closed" value="true" />
+      <created>1718138254191</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718138254191</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="geht schon" />
     <MESSAGE value="netzwerkdiagramm" />
     <MESSAGE value="Adjazenzmatrix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjazenzmatrix" />
+    <MESSAGE value="es geht" />
+    <MESSAGE value="kreuzberg" />
+    <option name="LAST_COMMIT_MESSAGE" value="kreuzberg" />
   </component>
 </project>
