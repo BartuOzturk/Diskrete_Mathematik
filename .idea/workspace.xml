@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6313c042-7840-4401-916a-0de87cfec9e6" name="Changes" comment="netzwerkdiagramm">
+    <list default="true" id="6313c042-7840-4401-916a-0de87cfec9e6" name="Changes" comment="Adjazenzmatrix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/floyd_warshall.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/floyd_warshall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/load_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/load_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/visualize.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,16 +35,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.floyd-warshall.executor": "Run",
-    "Python.load_data.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.floyd-warshall.executor&quot;: &quot;Run&quot;,
+    &quot;Python.load_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.main">
     <configuration name="load_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Diskrete Mathematik" />
@@ -135,12 +137,21 @@
       <option name="project" value="LOCAL" />
       <updated>1717782521870</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adjazenzmatrix">
+      <option name="closed" value="true" />
+      <created>1717784317039</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717784317039</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="geht schon" />
     <MESSAGE value="netzwerkdiagramm" />
-    <option name="LAST_COMMIT_MESSAGE" value="netzwerkdiagramm" />
+    <MESSAGE value="Adjazenzmatrix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjazenzmatrix" />
   </component>
 </project>

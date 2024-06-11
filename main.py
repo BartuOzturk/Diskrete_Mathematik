@@ -1,69 +1,48 @@
-from scripts.load_data import load_osm_data
+from scripts.load_data import load_osm_data, get_nearest_node
 from scripts.floyd_warshall import floyd_warshall
-from scripts.visualize import plot_distance_matrix, plot_adjacency_matrix
-import networkx as nx
-import matplotlib.pyplot as plt
+from scripts.visualize import plot_path
+import osmnx as ox
 
-def convert_graph_to_edge_list(graph):
-    edge_list = []
-    node_id_map = {}
-    next_index = 0
-
-    for u, v, data in graph.edges(data=True):
-        if u not in node_id_map:
-            node_id_map[u] = next_index
-            next_index += 1
-        if v not in node_id_map:
-            node_id_map[v] = next_index
-            next_index += 1
-
-        u_mapped = node_id_map[u]
-        v_mapped = node_id_map[v]
-        weight = data.get('length', 1)  # Standardgewicht, falls 'length' nicht verfügbar ist
-        edge_list.append((u_mapped, v_mapped, weight))
-
-    num_vertices = next_index  # Anzahl der einzigartigen Knoten
-    return edge_list, num_vertices
-
-def draw_network(graph):
-    print("Zeichne das Netzwerkdiagramm...")
-    pos = nx.spring_layout(graph)  # Positionen der Knoten im 2D-Raum
-    nx.draw_networkx_nodes(graph, pos, node_size=10, node_color='blue', alpha=0.6)
-    nx.draw_networkx_edges(graph, pos, alpha=0.4)
-    plt.title('Netzwerkdiagramm')
-    plt.show()
-
-def create_adjacency_matrix(graph):
-    """Erstellt eine Adjazenzmatrix aus einem NetworkX Graph."""
-    return nx.adjacency_matrix(graph).todense()
+def reconstruct_path(predecessors, start_index, end_index, node_id_map):
+    """
+    Rekonstruiert den Pfad von start_index zu end_index anhand der Vorgängermatrix.
+    Übersetzt indizierte Knoten zurück zu ihren originalen IDs für die Visualisierung.
+    """
+    path = []
+    current = end_index
+    while current != start_index:
+        if current == -1:
+            return []  # Ein Pfad existiert nicht
+        path.append(current)
+        current = predecessors[start_index][current]
+    path.append(start_index)
+    path.reverse()  # Pfad umkehren, um ihn von Start zu Ziel darzustellen
+    # Übersetzen der indizierten Knoten zurück zu ihren originalen IDs
+    original_path = [list(node_id_map.keys())[list(node_id_map.values()).
+    index(node)] for node in path]
+    return original_path
 
 def main():
-    print("Laden des Graphen...")
+    print("Laden des Graphen für Berlin...")
     graph = load_osm_data()
 
-    # print("Zeichne das Netzwerkdiagramm...")
-    # draw_network(graph)
+    start_address = "Böcklerstraße 6, 10969 Berlin"
+    end_address = "Brunnenstraße 111i, 13355 Berlin"
+    start_node = get_nearest_node(graph, start_address)
+    end_node = get_nearest_node(graph, end_address)
 
-    print("Erstelle Adjazenzmatrix...")
-    adj_matrix = create_adjacency_matrix(graph)
-    print("Adjazenzmatrix erstellt.")
+    # Erstelle ein Mapping von Knoten-IDs zu Indizes
+    node_id_map = {node: idx for idx, node in enumerate(graph.nodes())}
+    num_vertices = len(node_id_map)
+    edge_list = [(node_id_map[u], node_id_map[v], data['length']) for u, v, data in graph.edges(data=True, keys=False)]
 
-    print("Visualisiere Adjazenzmatrix...")
-    plot_adjacency_matrix(adj_matrix)
-    print("Visualisierung der Adjazenzmatrix abgeschlossen.")
+    distances, predecessors = floyd_warshall(num_vertices, edge_list)
 
-    print("Konvertiere Graph zu Edge List...")
-    edge_list, num_vertices = convert_graph_to_edge_list(graph)
-    print("Anzahl der Knoten:", num_vertices)
-    print("Anzahl der Kanten:", len(edge_list))
+    # Pfad von Start- zu Endknoten rekonstruieren und visualisieren
+    path = reconstruct_path(predecessors, node_id_map[start_node], node_id_map[end_node], node_id_map)
 
-    print("Berechne Distanzen mit Floyd-Warshall...")
-    distances = floyd_warshall(num_vertices, edge_list)
-    print("Distanzmatrix berechnet.")
-
-    print("Visualisiere die Distanzmatrix...")
-    plot_distance_matrix(distances)
-    print("Visualisierung abgeschlossen.")
+    print("Visualisiere den Pfad...")
+    plot_path(graph, path, start_node, end_node)
 
 if __name__ == "__main__":
     main()

@@ -1,22 +1,9 @@
 import matplotlib.pyplot as plt
-import numpy as np
+import osmnx as ox
 
-
-def plot_distance_matrix(distances):
+def plot_path(graph, path, start_node, end_node):
     """
-    Visualisiert die Distanzmatrix als Heatmap.
+    Visualisiert einen Pfad auf einem Straßennetz.
     """
-    plt.imshow(distances, cmap='hot', interpolation='nearest')
-    plt.colorbar()  # Füge eine Farblegende hinzu
-    plt.show()  # Zeige das Diagramm an
-
-
-def plot_adjacency_matrix(matrix, title="Adjazenzmatrix"):
-    """
-    Visualisiert eine Adjazenzmatrix mit matplotlib.
-    """
-    fig, ax = plt.subplots()
-    cax = ax.matshow(matrix, cmap='Blues')
-    fig.colorbar(cax)
-    plt.title(title)
+    fig, ax = ox.plot_graph_route(graph, path, route_color='y', route_linewidth=6, node_size=0)
     plt.show()
