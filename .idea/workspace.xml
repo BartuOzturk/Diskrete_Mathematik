@@ -7,6 +7,9 @@
     <list default="true" id="6313c042-7840-4401-916a-0de87cfec9e6" name="Changes" comment="kreuzberg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/floyd_warshall.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/floyd_warshall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/load_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/load_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/visualize.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

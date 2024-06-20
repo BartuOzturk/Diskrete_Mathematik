@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def floyd_warshall(num_vertices, edge_list):
     """
     Implementiert den Floyd-Warshall-Algorithmus zur Berechnung der kürzesten Pfade

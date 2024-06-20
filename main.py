@@ -3,6 +3,7 @@ from scripts.floyd_warshall import floyd_warshall
 from scripts.visualize import plot_path
 import osmnx as ox
 
+
 def reconstruct_path(predecessors, start_index, end_index, node_id_map):
     """
     Rekonstruiert den Pfad von start_index zu end_index anhand der Vorgängermatrix.
@@ -22,12 +23,13 @@ def reconstruct_path(predecessors, start_index, end_index, node_id_map):
     index(node)] for node in path]
     return original_path
 
+
 def main():
     print("Laden des Graphen für Berlin...")
     graph = load_osm_data()
 
-    start_address = "Böcklerstraße 6, 10969 Berlin"
-    end_address = "Kottbusser Damm 32, 10967 Berlin"
+    start_address = "Skalitzer Straße 48, 10997 Berlin"
+    end_address = "Kopischstraße 9, 10965 Berlin"
     start_node = get_nearest_node(graph, start_address)
     end_node = get_nearest_node(graph, end_address)
 
@@ -43,6 +45,7 @@ def main():
 
     print("Visualisiere den Pfad...")
     plot_path(graph, path, start_node, end_node)
+
 
 if __name__ == "__main__":
     main()

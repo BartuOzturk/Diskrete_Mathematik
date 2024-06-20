@@ -3,12 +3,14 @@ import osmnx as ox
 import ssl
 import certifi
 
+
 def load_osm_data(place_name="Kreuzberg, Berlin, Germany"):
     """
     Lädt das Straßennetz eines bestimmten Ortes mithilfe von OSMnx.
     """
     graph = ox.graph_from_place(place_name, network_type='drive')
     return graph
+
 
 def geocode_address(address):
     ctx = ssl.create_default_context(cafile=certifi.where())
@@ -22,6 +24,7 @@ def geocode_address(address):
         return (location.latitude, location.longitude)
     else:
         return None, None
+
 
 def get_nearest_node(graph, address):
     """
