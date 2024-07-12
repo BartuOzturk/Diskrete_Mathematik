@@ -1,7 +1,5 @@
 from geopy.geocoders import Nominatim
 import osmnx as ox
-import ssl
-import certifi
 
 
 def load_osm_data(place_name="Kreuzberg, Berlin, Germany"):
@@ -28,12 +26,9 @@ def geocode_address(address):
     Returns:
         tuple: Breiten- und Längengrad der Adresse.
     """
-    ctx = ssl.create_default_context(cafile=certifi.where())
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
 
     # Benutze einen spezifischen User-Agent
-    geolocator = Nominatim(user_agent="SpecificAppNameOrYourEmailHere", ssl_context=ctx)
+    geolocator = Nominatim(user_agent="SpecificAppNameOrYourEmailHere")
     location = geolocator.geocode(address)
     if location:
         return (location.latitude, location.longitude)
