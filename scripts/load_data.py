@@ -1,7 +1,6 @@
 from geopy.geocoders import Nominatim
 import osmnx as ox
 
-
 def load_osm_data(place_name="Kreuzberg, Berlin, Germany"):
     """
    Lädt das Straßennetz eines bestimmten Ortes mithilfe von OSMnx.
@@ -26,7 +25,6 @@ def geocode_address(address):
     Returns:
         tuple: Breiten- und Längengrad der Adresse.
     """
-
     # Benutze einen spezifischen User-Agent
     geolocator = Nominatim(user_agent="SpecificAppNameOrYourEmailHere")
     location = geolocator.geocode(address)

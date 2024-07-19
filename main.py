@@ -42,8 +42,8 @@ def main():
     print("Anzahl der Knoten im Graph:", len(graph.nodes()))
     print("Anzahl der Kanten im Graph:", len(graph.edges()))
 
-    start_address = "Skalitzer Straße 48, 10997 Berlin"
-    end_address = "Kopischstraße 9, 10965 Berlin"
+    start_address = "Böcklerstraße 6, 10969 Berlin"
+    end_address = "Brunnenstraße 111i, 13355 Berlin"
     start_node = get_nearest_node(graph, start_address)
     end_node = get_nearest_node(graph, end_address)
 
